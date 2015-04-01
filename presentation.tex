@@ -20,8 +20,34 @@
 \end{frame}
 
 %--- the presentation begins here ----------------%
-\begin{frame}{Using relational logic for nothing.}
-  Overview of the material.
+\begin{frame}{Relational logic}
+\begin{itemize}
+\item Relational logic started out as a means to prove program
+  equivalence.
+\item Hoare quadruples - intended to express equivalence of two
+  programs in a certain context.
+\item Benton's initial work - limited to structurally identical
+  programs.
+\item Later, Zaks and Pnueli, cross products - again limited to
+  structurally equivalent programs.
+\item Separately, self-composition - sound and complete but gives
+  really hard verification conditions.
+\item This paper: serves to unite both into one that's actually machine-checkable.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Our work.}
+\begin{itemize}
+\item We'd like to work with proving properties between the input and
+  output of several calls to the same function.
+\item Evidently, we can't assume structural equivalence in
+  general. For instance, conditionals may go down different branches,
+  and loops may have different numbers of iterations.
+\item However, we should be able to benefit from the somewhat common
+  structure.
+\item At present, we're trying to figure out judgement rules that
+  might be useful for the kinds of things we're trying to prove.
+\end{itemize}
 \end{frame}
 
 \end{document}
