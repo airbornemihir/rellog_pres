@@ -12,6 +12,10 @@
 }
 \date{01 April 2015}
 
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\setbeamertemplate{footline}[frame number]
 \begin{document}
 
 %--- the titlepage frame -------------------------%
@@ -36,17 +40,62 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Our work.}
+\begin{frame}
+\begin{itemize}
+
+\item The program syntax is:
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{grammar_rule.png}
+\end{figure}
+
+\item The program semantics are:
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{operational_semantics.png}
+\end{figure}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{product_construction_rules.png}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{reduction_rules.png}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Our work}
 \begin{itemize}
 \item We'd like to work with proving properties between the input and
-  output of several calls to the same function.
+  output of several calls to the same function.\\
+$ \forall x1, ..., xn. ( Pre(x1, ... , xn) \Rightarrow Post(f(x1),
+  ... f(xn))) $
+\item By making product programs, we should be able to prove
+  properties such as symmetry, reflexivity, transitivity, determinism
+  by expressing them as Hoare pre- and post-conditions and then
+  passing them to a theorem prover (Z3).
 \item Evidently, we can't assume structural equivalence in
   general. For instance, conditionals may go down different branches,
   and loops may have different numbers of iterations.
 \item However, we should be able to benefit from the somewhat common
   structure.
-\item At present, we're trying to figure out judgement rules that
+\item At present, we're trying to implement a verifier of this kind,
+  and also figure out judgement rules that
   might be useful for the kinds of things we're trying to prove.
+\item We're focussing on Java programs with comparators - those are
+  the main motivating example.
+\item We're able to deal with loop-free programs, but will re-write to
+  deal better with looping and recursing programs, incorporating the
+  product construction.
 \end{itemize}
 \end{frame}
 
